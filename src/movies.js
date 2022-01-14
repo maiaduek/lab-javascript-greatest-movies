@@ -86,40 +86,41 @@ function orderAlphabetically(movies) {
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 function turnHoursToMinutes(movies) {
-  let newArr = [...movies]
-  let times = newArr.map((movie) => {
-    movie.duration
-  })
-  // let newMovies = [...movies]
-  // let result = newMovies.map((movie) => {
-  //   let newTime = 0
+  // let newArr = [...movies]
+  // let times = newArr.map((movie) => {
+  //   movie.duration
+  // })
+  let newMovies = [...movies]
+  return newMovies.map((movie) => {
 
-  //   if (!movie.duration) {
-  //     newTime = 0
-  //   } else {
+    let newTime;
+    if (!movie.duration) {
+      newTime = 0
+    } else {
+      newTime = 0
+      let spl = String(movie.duration).split(" ")
+      for(let i = 0; i < spl.length; i++) {
 
-  //     let spl = String(movie.duration).split(" ")
-  //     for(let i = 0; i < spl.length; i++) {
+        if (spl[i][1] === 'h') {
+          newTime += Number(spl[i][0]) * 60
+        } else if (spl[i][2] === 'm') {
+          let splArr = spl[i].split('min')
+          newTime += Number(splArr[0])
+        } else if (Number(spl[i])){
+          newTime += Number(spl[i])
+        }
 
-  //       if (spl[i][1] === 'h') {
-  //         newTime += Number(spl[i][0]) * 60
-  //       } else if (spl[i][2] === 'm') {
-  //         let splArr = spl[i].split('min')
-  //         newTime += Number(splArr[0])
-  //       } else if (Number(spl[i])){
-  //         newTime += Number[spl[i]]
-  //       }
-
-  //     }
-  //     movie.duration = newTime
-
-  //   }
-  // }) 
-  // return result 
+      }
+      // movie.duration = newTime
+    }
+    return {duration: newTime}
+  }) 
 }
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
-function bestYearAvg() {}
+function bestYearAvg(movies) {
+  
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
